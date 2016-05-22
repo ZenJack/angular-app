@@ -1,0 +1,19 @@
+div {
+	text-align: right;
+}
+.item {
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #000fff;
+}
+img {
+	width: 150px;
+}
+.panel {
+	padding: 10px;
+	border: 1px solid transparent;
+}
+.active {
+	padding: 10px;
+	border: 1px solid #990000;
+}

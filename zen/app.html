@@ -1,0 +1,64 @@
+<!doctype html>
+<html ng-app="zen">	<!--當頁面加載完畢即運行 zen 模塊-->
+  <head>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+  <body>
+  	<!--
+		ng-controller: 指令
+		zenCtrl: 控制器名稱
+		zen: 控制器別名
+  	-->
+  	<div class="container" ng-controller="zenCtrl as zen">
+  		<div class="item" ng-repeat="person in zen.persons">
+	  		<div class="row">
+	  			<div class="col-md-1">名號：</div>
+	  			<div class="col-md-1">{{person.name}}</div>
+	  			<div class="col-md-1">
+	  				<img ng-src="{{person.image}}" />
+	  			</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-md-1">國籍：</div>
+	  			<div class="col-md-1">{{person.address}}</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-md-1">代表作：</div>
+	  			<div class="col-md-1">{{person.representative}}</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-md-1">
+	  				<button ng-show="{{person.show}}">關注</button>
+	  			</div>
+	  		</div>
+  		</div>
+
+  		<section ng-init="tab = 1">
+			<ul class="nav nav-pills">
+				<li><a href ng-click="tab = 1">釋</a></li>
+				<li><a href ng-click="tab = 2">道</a></li>
+				<li><a href ng-click="tab = 3">儒</a></li>
+			</ul>
+			<!--
+				ng-show or ng-hide 命令控制元素是否顯示。其值為一個 boolean 值
+				active 為 className 如果其後表逹式值為 true 那麼此 class 加入到此元素的 class 列表中，否則則不。
+			-->
+			<div class="panel" ng-class="{active:tab === 1}" ng-show="tab === tab">
+				<h4>釋</h4>
+				<p>來源於古印度，由一代佛祖，釋伽牟尼所創。向世人揭示了佛法本性自有，佛即凡夫，凡夫即佛的真知。</p>
+			</div>
+			<div class="panel" ng-class="{active:tab === 2}" ng-show="tab === tab">
+				<h4>道</h4>
+				<p>來自於先秦楚國人老人，講述了天地的運行法則，以及人怎樣與天地自然和睦相處。</p>
+			</div>
+			<div class="panel" ng-class="{active:tab === 3}" ng-show="tab === tab">
+				<h4>儒</h4>
+				<p>發源於先秦的魯國人孔子，全面論述了人與人之間的相處倫理。</p>
+			</div>
+  		</section>
+  	</div>
+  </body>
+</html>
