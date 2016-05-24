@@ -2,11 +2,6 @@
 	margin: 5px;
 	border-radius: 5px;
 	border: 1px solid;
-	border-bottom: none;
-}
-.row > div {
-	border-radius: 5px;
-	border-bottom: 1px solid;
 }
 img {
 	width: 100%;
@@ -29,7 +24,7 @@ img {
 .book-bar {
 	width: 65%;
 }
-mark {
+dt {
 	background-color: rgb(0, 153, 98);
     border-radius: 5px;
     color: #ffffff;

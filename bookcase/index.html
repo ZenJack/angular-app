@@ -33,12 +33,14 @@
 					<img ng-src="{{book.cover}}" />
 				</div>
 				<div class="book-base book-bar">
-					<div><mark class="text-right">書名：</mark>{{book.name}}</div>
-					<div><mark class="text-right">作者：</mark>{{book.author}}</div>
-					<div><mark class="text-right">售價：</mark>{{book.price | currency}}</div>
-					<div><mark class="text-right">分類：</mark>{{book.kind}}</div>
-					<div><mark class="text-right">上架日期：</mark>{{book.registerDate | date: 'yyyy-MM-dd'}}</div>
-					<p><mark>簡介：</mark>{{book.intro}}</p>
+					<dl class="text-overflow">
+						<dt>書名：</dt><dd>{{book.name}}</dd>
+						<dt>作者：</dt><dd>{{book.author}}</dd>
+						<dt>分類：</dt><dd>{{book.kind}}</dd>
+						<dt>售價：</dt><dd>{{book.price | currency}}</dd>
+						<dt>上架日期：</dt><dd>{{book.registerDate | date: 'yyyy-MM-dd'}}</dd>
+						<dt>簡介：</dt><dd>{{book.intro}}</dd>
+					</dl>
 				</div>
 				<div class="clearfix visible-sm"></div>
 			</div>
