@@ -1,0 +1,37 @@
+.row {
+	margin: 5px;
+	border-radius: 5px;
+	border: 1px solid;
+	border-bottom: none;
+}
+.row > div {
+	border-radius: 5px;
+	border-bottom: 1px solid;
+}
+img {
+	width: 100%;
+}
+.panel {
+	padding: 10px;
+	border: 1px solid transparent;
+}
+.active {
+	padding: 10px;
+	border: 1px solid #990000;
+}
+.book-base {
+	padding: 5px;
+	float: left;
+}
+.book-cover {
+	width: 35%;
+}
+.book-bar {
+	width: 65%;
+}
+mark {
+	background-color: rgb(0, 153, 98);
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 1px 8px;
+}
