@@ -28,47 +28,23 @@
 			ctrl.books: 取出 ctrl(bookListCtrl) 控制器中的 books 數據
 		-->
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="book in ctrl.books">
-		  		<div class="book-base book-cover">
-					<img ng-src="{{book.cover}}" />
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 item" ng-repeat="book in ctrl.books">
+		  		<div class="col-xs-4 padding-4">
+					<img class="img-cover" ng-src="{{book.cover}}" />
 				</div>
-				<div class="book-base book-bar">
-					<dl class="text-overflow">
-						<dt>書名：</dt><dd>{{book.name}}</dd>
-						<dt>作者：</dt><dd>{{book.author}}</dd>
-						<dt>分類：</dt><dd>{{book.kind}}</dd>
-						<dt>售價：</dt><dd>{{book.price | currency}}</dd>
-						<dt>上架日期：</dt><dd>{{book.registerDate | date: 'yyyy-MM-dd'}}</dd>
-						<dt>簡介：</dt><dd>{{book.intro}}</dd>
+				<div class="col-xs-8 padding-4">
+					<table class="table table-condensed">
+						<tr><td class="text-right tab-1">書名：</td><td>{{book.name}}</td></tr>
+						<tr><td class="text-right">作者：</td><td>{{book.author}}</td></tr>
+						<tr><td class="text-right">分類：</td><td>{{book.kind}}</td></tr>
+						<tr><td class="text-right">售價：</td><td>{{book.price | currency}}</td></tr>
+						<tr><td class="text-right">上架日期：</td><td>{{book.registerDate | date: 'yyyy-MM-dd'}}</td></tr>
+						<tr><td class="text-right">簡介：</td><td>{{book.intro}}</td></tr>
 					</dl>
 				</div>
-				<div class="clearfix visible-sm"></div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
-
-  		<!-- <section ng-init="tab = 1">
-			<ul class="nav nav-pills">
-				<li><a href ng-click="tab = 1">釋</a></li>
-				<li><a href ng-click="tab = 2">道</a></li>
-				<li><a href ng-click="tab = 3">儒</a></li>
-			</ul> -->
-			<!--
-				ng-show or ng-hide 命令控制元素是否顯示。其值為一個 boolean 值
-				active 為 className 如果其後表逹式值為 true 那麼此 class 加入到此元素的 class 列表中，否則則不。
-			-->
-			<!-- <div class="panel" ng-class="{active:tab === 1}" ng-show="tab === tab">
-				<h4>釋</h4>
-				<p>來源於古印度，由一代佛祖，釋伽牟尼所創。向世人揭示了佛法本性自有，佛即凡夫，凡夫即佛的真知。</p>
-			</div>
-			<div class="panel" ng-class="{active:tab === 2}" ng-show="tab === tab">
-				<h4>道</h4>
-				<p>來自於先秦楚國人老人，講述了天地的運行法則，以及人怎樣與天地自然和睦相處。</p>
-			</div>
-			<div class="panel" ng-class="{active:tab === 3}" ng-show="tab === tab">
-				<h4>儒</h4>
-				<p>發源於先秦的魯國人孔子，全面論述了人與人之間的相處倫理。</p>
-			</div>
-  		</section> -->
   	</div>
   </body>
 </html>

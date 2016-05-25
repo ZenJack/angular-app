@@ -3,30 +3,22 @@
 	border-radius: 5px;
 	border: 1px solid;
 }
-img {
+.item {
+	margin-top: 10px;
+}
+.img-cover {
 	width: 100%;
 }
-.panel {
-	padding: 10px;
-	border: 1px solid transparent;
+.clear-padding {
+	padding-left: 0px;
+	padding-right: 0px;
 }
-.active {
-	padding: 10px;
-	border: 1px solid #990000;
+.padding-4 {
+	padding: 4px;
 }
-.book-base {
-	padding: 5px;
-	float: left;
+.tab-1 {
+	width: 85px;
 }
-.book-cover {
-	width: 35%;
-}
-.book-bar {
-	width: 65%;
-}
-dt {
-	background-color: rgb(0, 153, 98);
-    border-radius: 5px;
-    color: #ffffff;
-    padding: 1px 8px;
+.table > tbody > tr > td {
+	border: 0px;
 }
