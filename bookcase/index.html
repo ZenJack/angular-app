@@ -9,19 +9,67 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
 
     <script src="lib/js/angular.min.js"></script>
-    <!-- <script src="lib/js/bootstrap.min.js"></script> -->
+	<script src="lib/js/jquery.min.js"></script>
+	<script src="lib/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css">
 	<title>書柜</title>
   </head>
   <body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">書齋</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+			        <li class="active"><a>首頁<span class="sr-only">(current)</span></a></li>
+			        <li><a href="review.html">評論</a></li>
+			        <!-- <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="#">Action</a></li>
+			            <li><a href="#">Another action</a></li>
+			            <li><a href="#">Something else here</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Separated link</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">One more separated link</a></li>
+			          </ul>
+			        </li> -->
+			    </ul>
+			</div>
+		</div>
+	</nav>
+	<section class="col-sm-9 col-sx-12 center-block" ng-controller="PanelCtrl as ctrl">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:ctrl.isSelected(1)}"><a href ng-click="ctrl.selectPanel(1)">描述</a></li>
+			<li ng-class="{active:ctrl.isSelected(2)}"><a href ng-click="ctrl.selectPanel(2)">说明書</a></li>
+			<li ng-class="{active:ctrl.isSelected(3)}"><a href ng-click="ctrl.selectPanel(3)">評論</a></li>
+		</ul>
+		<div class="panel" ng-class="{active:ctrl.isSelected(1)}" ng-show="ctrl.isSelected(1)">
+			在書的世界裡，你可以穫得很多。
+		</div>
+		<div class="panel" ng-class="{active:ctrl.isSelected(2)}" ng-show="ctrl.isSelected(2)">
+			歡迎來到書柜系統，現在你可以瀏覧到人類最寶貴的知識。
+		</div>
+		<div class="panel" ng-class="{active:ctrl.isSelected(3)}" ng-show="ctrl.isSelected(3)">
+			從無知到有知，從迷惑到瞭悟，這是我的收穫。
+		</div>
+	</section>	
   	<!--
 		ng-controller: 控制器指令
 		bookListCtrl: 控制器名稱
 		book: 控制器別名
   	-->
-  	<div class="container-fluid" ng-controller="BookListCtrl as ctrl">
+  	<div class="col-sm-9 col-sx-12 center-block container-fluid" ng-controller="BookListCtrl as ctrl">
 		<!--
 			ng-repeat: 循環指令
 			book: 遍歷的變量
@@ -45,23 +93,8 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-		<section>
-			<ul class="nav nav-pills" ng-init="tabFlag = 2">
-				<li ng-class="{active:tabFlag === 1}"><a href ng-click="tabFlag = 1">描述</a></li>
-				<li ng-class="{active:tabFlag === 2}"><a href ng-click="tabFlag = 2">说明書</a></li>
-				<li ng-class="{active:tabFlag === 3}"><a href ng-click="tabFlag = 3">評論</a></li>
-			</ul>
-			<div class="panel" ng-class="{active:tabFlag === 1}" ng-show="tabFlag === 1">
-				在書的世界裡，你可以穫得很多。
-			</div>
-			<div class="panel" ng-class="{active:tabFlag === 2}" ng-show="tabFlag === 2">
-				歡迎來到書柜系統，現在你可以瀏覧到人類最寶貴的知識。
-			</div>
-			<div class="panel" ng-class="{active:tabFlag === 3}" ng-show="tabFlag === 3">
-				從無知到有知，從迷惑到瞭悟，這是我的收穫。
-			</div>
-		</section>
   	</div>
+	
 	
   </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html/>
-<html lang="zh-CN">
+<html ng-app="bookcase" lang="zh-CN">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -26,9 +26,9 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-				        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-				        <li><a href="#">Link</a></li>
-				        <li class="dropdown">
+				        <li><a href="index.html">首頁<span class="sr-only">(current)</span></a></li>
+				        <li class="active"><a>評論</a></li>
+				        <!-- <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
 				            <li><a href="#">Action</a></li>
@@ -39,13 +39,12 @@
 				            <li role="separator" class="divider"></li>
 				            <li><a href="#">One more separated link</a></li>
 				          </ul>
-				        </li>
+				        </li> -->
 				    </ul>
 				</div>
 			</div>
 		</nav>
-
-		<form class="col-xs-12 form-inline">
+		<!-- <form class="col-xs-12 form-inline">
 			<div class="form-group">
 				<label>书名：</label>
 				<input class="form-control" type="text" placeholder="书名" />
@@ -55,23 +54,44 @@
 				<textarea class="form-control" placeholder="评论"></textarea>
 			</div>
 			<div class="form-group">
-				<input class="btn btn-primary" type="button" value ="发表" />
+				<input class="btn btn-primary" type="button" value="发表" />
 			</div>
-		</form>
-		
-		<form class="col-xs-12">
+		</form> -->
+		<form class="col-sm-4 col-xs-12 center-block" ng-controller="ReviewCtrl as ctrl" ng-submit="ctrl.submitReview(ctrl.book)">
+			<h4>预览：</h4>
+			<div>
+				<div class="col-xs-3 padding-4">
+					<img class="img-cover" ng-src="{{ctrl.book.cover}}" />
+				</div>
+				<div class="col-xs-9 padding-4">
+					<table class="table table-condensed">
+						<tr><td class="tab-1">書名：</td><td>{{ctrl.book.name}}</td></tr>
+						<tr><td>作者：</td><td>{{ctrl.book.author}}</td></tr>
+						<tr><td>分類：</td><td>{{ctrl.book.kind}}</td></tr>
+						<tr><td>售價：</td><td>{{ctrl.book.price | currency}}</td></tr>
+						<tr><td>上架日期：</td><td>{{ctrl.book.registerDate | date: 'yyyy-MM-dd'}}</td></tr>
+						<tr><td>簡介：</td><td>{{ctrl.book.intro}}</td></tr>
+					</table>
+				</div>
+
+				<table class="table table-condensed">
+					<tr><td class="tab-1">星级：</td><td>{{ctrl.star}}</td></tr>
+					<tr><td>评论：</td><td>{{ctrl.review}}</td></tr>
+				</table>
+			</div>
 			<div class="form-group">
 				<label class="sr-only">书名：</label>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon">书名</span>
-					<input class="form-control" type="text" placeholder="书名" />
+					<input class="form-control" type="text" placeholder="书名" ng-model="ctrl.currentName" ng-change="ctrl.changeBook(ctrl.currentName)" list="bookList"/>
+					<datalist id="bookList"></datalist>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="sr-only"></label>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon">星级</span>
-					<input class="form-control" type="number" placeholder="评论星级" min="1" max="5" />
+					<input class="form-control" type="number" placeholder="评论星级" min="1" max="5" ng-model="ctrl.star" />
 					<span class="input-group-addon">颗</span>
 				</div>
 			</div>
@@ -79,11 +99,11 @@
 				<label class="sr-only">评论：</label>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon">评论</span>
-					<textarea class="form-control" placeholder="评论"></textarea>
+					<textarea class="form-control" placeholder="评论" ng-model="ctrl.review"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
-				<input class="btn btn-primary" type="button" value ="发表" />
+				<input class="btn btn-primary" type="submit" value="发表" />
 			</div>
 		</form>
 	</body>

@@ -41,11 +41,51 @@
 	},
 	
 	];
-
-	var tabFlag = 1;
 	
 	app.controller('BookListCtrl', function() {
 		this.books = books;
-		this.tabFlag = tabFlag;
+	});
+	
+	app.controller('PanelCtrl', function() {
+		this.tab = 2;
+		this.selectPanel = function(setTab) {
+			this.tab = setTab;
+		}
+		this.isSelected = function(setTab) {
+			return this.tab === setTab;
+		}
+	});
+	
+	app.controller('ReviewCtrl', function() {
+		// 初始化書籍列表
+		var node;
+		books.forEach(function(e) {
+			node = document.createElement('option');
+			node.setAttribute('value', e.name);
+			document.getElementById('bookList').appendChild(node);
+		});
+		
+
+		this.getBookByName = function(name) {
+			var book;
+			books.forEach(function(e) {
+				if (e.name === name) {
+					book = e;
+					return;
+				}
+			});
+			return book;
+		}
+		
+		this.book = this.getBookByName('金剛經');
+		
+		this.submitReview = function(book) {
+			console.log(JSON.stringify(book));
+		}
+
+		this.changeBook = function(name) {
+			this.book = this.getBookByName(name);
+			console.log(this.book);
+		}
 	});
 })();
