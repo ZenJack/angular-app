@@ -1,0 +1,90 @@
+<!doctype html/>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<script src="lib/js/angular.min.js"></script>
+		<script src="lib/js/jquery.min.js"></script>
+		<script src="lib/js/bootstrap.min.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="app.css">
+		<title>评论</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">書齋</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+				        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+				        <li><a href="#">Link</a></li>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">Action</a></li>
+				            <li><a href="#">Another action</a></li>
+				            <li><a href="#">Something else here</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="#">Separated link</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="#">One more separated link</a></li>
+				          </ul>
+				        </li>
+				    </ul>
+				</div>
+			</div>
+		</nav>
+
+		<form class="col-xs-12 form-inline">
+			<div class="form-group">
+				<label>书名：</label>
+				<input class="form-control" type="text" placeholder="书名" />
+			</div>
+			<div class="form-group">
+				<label>评论：</label>
+				<textarea class="form-control" placeholder="评论"></textarea>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-primary" type="button" value ="发表" />
+			</div>
+		</form>
+		
+		<form class="col-xs-12">
+			<div class="form-group">
+				<label class="sr-only">书名：</label>
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">书名</span>
+					<input class="form-control" type="text" placeholder="书名" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="sr-only"></label>
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">星级</span>
+					<input class="form-control" type="number" placeholder="评论星级" min="1" max="5" />
+					<span class="input-group-addon">颗</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="sr-only">评论：</label>
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">评论</span>
+					<textarea class="form-control" placeholder="评论"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-primary" type="button" value ="发表" />
+			</div>
+		</form>
+	</body>
+</html>

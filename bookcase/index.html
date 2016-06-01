@@ -22,29 +22,46 @@
 		book: 控制器別名
   	-->
   	<div class="container-fluid" ng-controller="BookListCtrl as ctrl">
-  		<!--
+		<!--
 			ng-repeat: 循環指令
 			book: 遍歷的變量
 			ctrl.books: 取出 ctrl(bookListCtrl) 控制器中的 books 數據
 		-->
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 item" ng-repeat="book in ctrl.books">
-		  		<div class="col-xs-4 padding-4">
+			<div class="col-sm-6 col-xs-12 item" ng-repeat="book in ctrl.books | orderBy:'-price'">
+		  		<div class="col-xs-3 padding-4">
 					<img class="img-cover" ng-src="{{book.cover}}" />
 				</div>
-				<div class="col-xs-8 padding-4">
+				<div class="col-xs-9 padding-4">
 					<table class="table table-condensed">
-						<tr><td class="text-right tab-1">書名：</td><td>{{book.name}}</td></tr>
-						<tr><td class="text-right">作者：</td><td>{{book.author}}</td></tr>
-						<tr><td class="text-right">分類：</td><td>{{book.kind}}</td></tr>
-						<tr><td class="text-right">售價：</td><td>{{book.price | currency}}</td></tr>
-						<tr><td class="text-right">上架日期：</td><td>{{book.registerDate | date: 'yyyy-MM-dd'}}</td></tr>
-						<tr><td class="text-right">簡介：</td><td>{{book.intro}}</td></tr>
-					</dl>
+						<tr><td class="tab-1">書名：</td><td>{{book.name}}</td></tr>
+						<tr><td>作者：</td><td>{{book.author}}</td></tr>
+						<tr><td>分類：</td><td>{{book.kind}}</td></tr>
+						<tr><td>售價：</td><td>{{book.price | currency}}</td></tr>
+						<tr><td>上架日期：</td><td>{{book.registerDate | date: 'yyyy-MM-dd'}}</td></tr>
+						<tr><td>簡介：</td><td>{{book.intro}}</td></tr>
+					</table>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
+		<section>
+			<ul class="nav nav-pills" ng-init="tabFlag = 2">
+				<li ng-class="{active:tabFlag === 1}"><a href ng-click="tabFlag = 1">描述</a></li>
+				<li ng-class="{active:tabFlag === 2}"><a href ng-click="tabFlag = 2">说明書</a></li>
+				<li ng-class="{active:tabFlag === 3}"><a href ng-click="tabFlag = 3">評論</a></li>
+			</ul>
+			<div class="panel" ng-class="{active:tabFlag === 1}" ng-show="tabFlag === 1">
+				在書的世界裡，你可以穫得很多。
+			</div>
+			<div class="panel" ng-class="{active:tabFlag === 2}" ng-show="tabFlag === 2">
+				歡迎來到書柜系統，現在你可以瀏覧到人類最寶貴的知識。
+			</div>
+			<div class="panel" ng-class="{active:tabFlag === 3}" ng-show="tabFlag === 3">
+				從無知到有知，從迷惑到瞭悟，這是我的收穫。
+			</div>
+		</section>
   	</div>
+	
   </body>
 </html>
