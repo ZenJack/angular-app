@@ -44,7 +44,10 @@
 				</div>
 			</div>
 		</nav>
-		<form class="col-sm-4 col-xs-12 center-block" name="reviewForm" ng-controller="ReviewCtrl as ctrl" ng-submit="reviewForm.$valid && ctrl.submitReview(ctrl.book)" novalidate>
+		
+		<panels ng-controller="PanelCtrl as ctrl"></panels>
+
+		<form name="reviewForm" class="col-sm-4 col-xs-12 center-block" ng-controller="ReviewCtrl as ctrl" ng-submit="reviewForm.$valid && ctrl.submitReview(ctrl.book)" novalidate>
 			<h4>预览：</h4>
 			<div>
 				<div class="col-xs-3 padding-4">
@@ -65,12 +68,13 @@
 					<tr><td class="tab-1">星级：</td><td>{{ctrl.star}}</td></tr>
 					<tr><td>评论：</td><td>{{ctrl.review}}</td></tr>
 				</table>
+				数据审核标志：{{reviewForm.$valid}}
 			</div>
 			<div class="form-group">
 				<label class="sr-only">书名：</label>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon">书名</span>
-					<input class="form-control" type="text" placeholder="书名" ng-model="ctrl.currentName" ng-change="ctrl.changeBook(ctrl.currentName)" list="bookList" required />
+					<input class="form-control" type="text" placeholder="书名" ng-model="ctrl.currentName" ng-change="ctrl.changeBook(ctrl.currentName)" list="bookList" required/>
 					<datalist id="bookList"></datalist>
 				</div>
 			</div>
@@ -78,7 +82,14 @@
 				<label class="sr-only"></label>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon">星级</span>
-					<input class="form-control" type="number" placeholder="评论星级" min="1" max="5" ng-model="ctrl.star" required/>
+					<input class="form-control" type="number" placeholder="评论星级" min="1" max="5" ng-model="ctrl.star" list="starList" required/>
+					<datalist id="starList">
+						<option value="1"/>
+						<option value="2"/>
+						<option value="3"/>
+						<option value="4"/>
+						<option value="5"/>
+					</datalist>
 					<span class="input-group-addon">颗</span>
 				</div>
 			</div>
@@ -90,7 +101,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<input class="btn btn-primary" type="submit" value="发表" ng-show="reviewForm.$valid" />
+				<input class="btn btn-primary" type="submit" value="发表" ng-show="reviewForm.$valid"/>
 			</div>
 		</form>
 	</body>

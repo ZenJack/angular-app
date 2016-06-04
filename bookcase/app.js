@@ -88,4 +88,11 @@
 			console.log(this.book);
 		}
 	});
+
+	app.directive('panels', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'panels.html',
+		};
+	});
 })();
