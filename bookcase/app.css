@@ -2,7 +2,8 @@ body {
 	font-size: 14px;
 }
 .row {
-	margin: 5px;
+	margin: 0px;
+	margin-bottom: 5px; 
 	border-radius: 5px;
 	border: 1px solid;
 }

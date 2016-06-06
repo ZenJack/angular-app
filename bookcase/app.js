@@ -6,7 +6,7 @@
 	 * 參數-1：應用名稱
 	 * 參數-2：可能依賴的其它庫（多個）
 	 */
-	var app = angular.module('bookcase', []);
+	var app = angular.module('bookcase', ['nav','panels']);
 
 	var books = [
 	{
@@ -45,17 +45,7 @@
 	app.controller('BookListCtrl', function() {
 		this.books = books;
 	});
-	
-	app.controller('PanelCtrl', function() {
-		this.tab = 2;
-		this.selectPanel = function(setTab) {
-			this.tab = setTab;
-		}
-		this.isSelected = function(setTab) {
-			return this.tab === setTab;
-		}
-	});
-	
+
 	app.controller('ReviewCtrl', function() {
 		// 初始化書籍列表
 		var node;
@@ -89,10 +79,5 @@
 		}
 	});
 
-	app.directive('panels', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'panels.html',
-		};
-	});
+	
 })();

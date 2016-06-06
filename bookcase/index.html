@@ -11,57 +11,31 @@
     <script src="lib/js/angular.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script src="lib/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
+    <script src="lib/js/store.js"></script>
+	<script src="nav.js"></script>
+	<script src="panels.js"></script>
+	<script src="app.js"></script>
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css">
 	<title>書柜</title>
   </head>
   <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">書齋</a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-			        <li class="active"><a>首頁<span class="sr-only">(current)</span></a></li>
-			        <li><a href="review.html">評論</a></li>
-			        <!-- <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-			          <ul class="dropdown-menu">
-			            <li><a href="#">Action</a></li>
-			            <li><a href="#">Another action</a></li>
-			            <li><a href="#">Something else here</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">Separated link</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">One more separated link</a></li>
-			          </ul>
-			        </li> -->
-			    </ul>
-			</div>
-		</div>
-	</nav>
-	<panels ng-controller="PanelCtrl as ctrl"></panels>
+	
+	<navs></navs>
+	<panels></panels>
   	<!--
 		ng-controller: 控制器指令
 		bookListCtrl: 控制器名稱
 		book: 控制器別名
   	-->
-  	<div class="col-sm-9 col-sx-12 center-block container-fluid" ng-controller="BookListCtrl as ctrl">
+  	<div class="col-sm-9 col-sx-12 center-block container-fluid" ng-controller="BookListCtrl as bookListCtrl">
 		<!--
 			ng-repeat: 循環指令
 			book: 遍歷的變量
 			ctrl.books: 取出 ctrl(bookListCtrl) 控制器中的 books 數據
 		-->
 		<div class="row">
-			<div class="col-sm-6 col-xs-12 item" ng-repeat="book in ctrl.books | orderBy:'-price'">
+			<div class="col-sm-6 col-xs-12 item" ng-repeat="book in bookListCtrl.books | orderBy:'-price'">
 		  		<div class="col-xs-3 padding-4">
 					<img class="img-cover" ng-src="{{book.cover}}" />
 				</div>
