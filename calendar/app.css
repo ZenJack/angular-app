@@ -1,0 +1,74 @@
+body {
+	font-size: 14px;
+}
+
+.calendar-bar {
+	margin: 15px auto;
+	width: 100%;
+}
+
+.center-block {
+	float: none;
+}
+
+.calendar-title {
+	font-size: 12px;
+  	letter-spacing: 3px;
+}
+
+.calendar-day {
+	font-size: 25px;
+}
+
+.button-bar {
+	text-align: center;
+}
+
+.btn {
+	margin: 0 10px;
+}
+
+.mark-weekend {
+	color: #FA1736;
+}
+.mark {
+	display: inline-block;
+	margin-right: 10px;
+	background-color: transparent;
+	font-weight: bold;
+}
+.mark-fullyear {
+	font-size: 25px;
+}
+.mark-month {	
+}
+
+.mark-currentDay {
+	color: #ffffff;
+	background-color: #000000;
+}
+
+.float-left {
+	float: left;
+}
+.clear {
+	clear: both;
+}
+
+.clear-padding {
+	padding: 0px;
+}
+
+.arrow {
+	text-align: center;
+	font-size: 38px;
+	font-weight: bold;
+}
+.arrow:hover {
+	color: #D3CBCB;
+	cursor: pointer;
+}
+
+th,td {
+	text-align: center;
+}

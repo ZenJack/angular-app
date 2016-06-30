@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="bookcase" lang="zh-CN">	<!--當頁面加載完畢即運行 bookcase 模塊-->
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--
+		定義視口（viewport）的元數據
+		同時設置頁面寬度為設備寬度，且在不能縮放，且初始化比例為 1:1
+	-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+
+    <script src="lib/js/angular.min.js"></script>
+	<script src="lib/js/jquery.min.js"></script>
+	<script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/store.js"></script>
+	<script src="components/calendar/calendar.js"></script>
+	<script src="app.js"></script>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+	<title>日曆</title>
+  </head>
+  <body class="container">
+	<div class="col-lg-12 col-sx-12 center-block">
+		<calendar></calendar>
+	</div>
+  </body>
+</html>
