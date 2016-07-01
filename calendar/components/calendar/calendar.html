@@ -1,19 +1,19 @@
 <!-- {{$ctrl.calendar}} -->
 <div class="calendar-bar">
-	<span class="mark mark-fullyear">{{$ctrl.calendar.fullYear}}年</span>
-	<span class="mark mark-month">{{$ctrl.calendar.month}}月</span>
-	<button class="btn btn-md next-btn" ng-click="$ctrl.resetMonth()">当月</button>
+	<span class="mark mark-fullyear">{{$ctrl.calendar.calendar.fullYear}}年</span>
+	<span class="mark mark-month">{{$ctrl.calendar.calendar.month}}月</span>
+	<button class="btn btn-md next-btn" ng-click="$ctrl.calendar.resetMonth()">当月</button>
 </div>
 <div class="calendar-bar">
-	<div class="col-xs-1 clear-padding float-left arrow" title="上月" ng-click="$ctrl.prevMonth()">&lt</div>
+	<div class="col-xs-1 clear-padding float-left arrow" title="上月" ng-click="$ctrl.calendar.prevMonth()">&lt</div>
 	<table class="col-xs-10 clear-padding float-left">
 		<tr>
-			<th class="calendar-title" ng-class="{'mark-weekend': $ctrl.isWeekend(day.day)}" ng-repeat="day in $ctrl.calendar.days | limitTo: 17">
+			<th class="calendar-title" ng-class="{'mark-weekend': $ctrl.calendar.isWeekend(day.day)}" ng-repeat="day in $ctrl.calendar.calendar.days.slice(0,17)">
 				{{day.weekEn}}{{day.weekZh}}
 			</th>
 		</tr>
 		<tr>
-			<td class="calendar-day" ng-class="{'mark-weekend': $ctrl.isWeekend(day.day), 'mark-currentDay': $ctrl.isToday(day.dateString)}" ng-repeat="day in $ctrl.calendar.days | limitTo: 17">
+			<td class="calendar-day" ng-class="{'mark-weekend': $ctrl.calendar.isWeekend(day.day), 'mark-currentDay': $ctrl.calendar.isToday(day.dateString)}" ng-repeat="day in $ctrl.calendar.calendar.days.slice(0,17)">
 				{{day.date}}
 			</td>
 		</tr>
@@ -21,16 +21,16 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td class="calendar-day" ng-class="{'mark-weekend': $ctrl.isWeekend(day.day), 'mark-currentDay': $ctrl.isToday(day.dateString)}" ng-repeat="day in $ctrl.calendar.days | limitTo: 17 - $ctrl.calendar.days.length">
+			<td class="calendar-day" ng-class="{'mark-weekend': $ctrl.calendar.isWeekend(day.day), 'mark-currentDay': $ctrl.calendar.isToday(day.dateString)}" ng-repeat="day in $ctrl.calendar.calendar.days.slice(17)">
 				{{day.date}}
 			</td>
 		</tr>
 	</table>
-	<div class="col-xs-1 clear-padding float-left arrow" title="下月" ng-click="$ctrl.nextMonth()">&gt</div>
+	<div class="col-xs-1 clear-padding float-left arrow" title="下月" ng-click="$ctrl.calendar.nextMonth()">&gt</div>
 </div>
 <div class="clear"></div>
 <div class="calendar-bar button-bar">
-	<!-- <button class="btn btn-md prev-btn" ng-click="$ctrl.prevMonth()">上月</button>
-	<button class="btn btn-md next-btn" ng-click="$ctrl.nextMonth()">下月</button> -->
-	<!-- <button class="btn btn-md next-btn" ng-click="$ctrl.resetMonth()">当月</button> -->
+	<!-- <button class="btn btn-md prev-btn" ng-click="$ctrl.calendar.prevMonth()">上月</button>
+	<button class="btn btn-md next-btn" ng-click="$ctrl.calendar.nextMonth()">下月</button> -->
+	<!-- <button class="btn btn-md next-btn" ng-click="$ctrl.calendar.resetMonth()">当月</button> -->
 </div>
