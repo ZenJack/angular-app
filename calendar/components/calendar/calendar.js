@@ -157,6 +157,7 @@ Calendar.prototype.getDateString = function(date) {
 	day = fillZero(day);
 	function fillZero(num) {
 		if (num < 10) return num = '0' + num;
+		return num;
 	}
 	return (date.getFullYear()+''+month+''+day);
 }
