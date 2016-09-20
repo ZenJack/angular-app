@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="menu">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+	<title>点餐</title>
+	<link rel="stylesheet" href="css/boot.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/store.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+</head>
+<body ng-controller="BootCtrl">
+	<div id="menu" class="menu-default">
+		<div ng-show="btn == 1" class="page menu-list">
+			<div class="page-head menu-list-head">
+				<div class="bar">
+					人数：<input type="number" min="1" class="pepleNumber" ng-change="calcPrice()" ng-model="pepleNumber" name="" value="">
+				</div>
+				<div class="number">
+					<span class="total">总数：{{countPrice}}元</span>
+					<span class="avg">人均：{{avgPrice}}元</span>
+				</div>
+			</div>
+			<div class="page-content menu-list-content">
+				<div class="menu-list-itme" ng-repeat="m in menuList1 | orderBy:'price' track by $index" ng-click="selectIn(m.id)">
+					<div class="img">
+						<img ng-src="{{m.img}}" alt="菜单图片">
+					</div>
+					<div class="name">{{m.name}}</div>
+					<div class="price">{{m.price}}元</div>
+					<div class="img" ng-show="m.selected">
+						<img class="selected" ng-src="{{m.selected}}" alt="菜单图片">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-show="btn == 2" class="page menu-info">
+			<div class="page-head menu-info-head">
+				<div class="bar">
+					人数：<input type="number" min="1" class="pepleNumber" ng-change="calcPrice()" ng-model="pepleNumber" name="" value="">
+				</div>
+				<div ng-click="clearMenu()" class="btn clear">
+					清除
+				</div>
+				<div ng-click="saveMenu()" class="btn save">
+					保存
+				</div>
+			</div>
+
+			<div class="page-content menu-info-content">
+				<table class="table-menu">
+					<caption>今日菜单</caption>
+					<thead>
+						<tr>
+							<th>小类</th>
+							<th>菜名</th>
+							<th>单价</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="m in menuList2 | orderBy:'-price' track by $index">
+							<td>{{m.t2}}</td>
+							<td>{{m.name}}</td>
+							<td>{{m.price}}</td>
+						</tr>
+						<tr>
+							<td class="table-hr"></td>
+							<td class="table-hr"></td>
+							<td class="table-hr"></td>
+						</tr>
+						<tr>
+							<td>人均：{{avgPrice}} 元</td>
+							<td>人数：{{pepleNumber}} 人</td>
+							<td>总计：{{countPrice}} 元</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="menu-footbar">
+			<div ng-click="changePage(1)" class="btn menu-footbar-btn1">
+				菜单
+			</div>
+			<div ng-click="changePage(2)" class="btn menu-footbar-btn2">
+				计算
+			</div>
+		</div>
+
+		<div ng-show="showTip" class="tipbar">
+			<span class="tip" id="{{tips}}">{{tip}}</span>
+		</div>
+	</div>
+</body>
+</html>
